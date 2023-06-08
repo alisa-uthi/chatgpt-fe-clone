@@ -1,0 +1,69 @@
+$green-color: #1AC37D;
+$red-color: #B91C1B;
+$yellow-color: #FBE69E;
+
+$white: #FFF;
+$black: #000;
+
+
+$chatgpt-palette-grey: (
+    50 : $white,           
+    100 : #CED2D7,       
+    200 : #ECECF1,      
+    300 : #D1D5DA,      
+    400 : #C5C5D2,      
+    500 : #8E8E9F,     
+    600 : #4D4D4F,     
+    700 : #444654,      
+    800 : #40414F,    
+    900 : #343541,      
+    A100 : #353740,      
+    A200 : #202123,    
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+$palette-primary: $chatgpt-palette-grey;
+$body-bg-color: map-get($chatgpt-palette-grey, 900) !default;
+$border-color: map-get($chatgpt-palette-grey , 600) !default;
+$default-border-radius: 10px;
+$chatgpt-logo: url(/assets/images/chatgpt-logo.png) center/contain no-repeat !default;
+
+// Left Side Nav
+$left-sidenav-bg-color: map-get($chatgpt-palette-grey , A200) !default;
+$left-sidenav-text-light-color: map-get($chatgpt-palette-grey , 200) !default;
+$left-sidenav-text-dark-color: map-get($chatgpt-palette-grey , 500) !default;
+$left-sidenav-icon-color: map-get($chatgpt-palette-grey , 50) !default;
+$left-sidenav-icon-in-box-color: map-get($chatgpt-palette-grey , 400) !default;
+$left-sidenav-box-bg-color: map-get($chatgpt-palette-grey , 900) !default;
+
+// Chat
+$user-msg-text-color: map-get($chatgpt-palette-grey , 100) !default;
+$user-msg-text-bg-color: map-get($chatgpt-palette-grey , 900) !default;
+$user-msg-icon-color: map-get($chatgpt-palette-grey , 500) !default;
+$chat-msg-text-color: map-get($chatgpt-palette-grey , 300) !default;
+$chat-msg-text-bg-color: map-get($chatgpt-palette-grey , 700) !default;
+$chat-msg-icon-color: map-get($chatgpt-palette-grey , 500) !default;
+
+// Send a Message section
+$input-text-color: map-get($chatgpt-palette-grey , 500) !default;
+$input-bg-color: map-get($chatgpt-palette-grey , 800) !default;
+$input-submit-color: $green-color;
+
+// Regenerate Response section
+$regen-response-text-color: map-get($chatgpt-palette-grey , 200) !default;
+$regen-response-text-bg-color: map-get($chatgpt-palette-grey , 900) !default;

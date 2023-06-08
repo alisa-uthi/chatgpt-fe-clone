@@ -1,0 +1,32 @@
+@mixin typography($font-size, $color, $line-height: normal, $letter-spacing: normal) {
+    font-size: $font-size;
+    @if $line-height==normal {
+        line-height: normal;
+    } @else {
+        line-height: math.div($line-height, $font-size)
+    }
+
+    @if $letter-spacing==normal {
+        letter-spacing: normal;
+    } @else {
+        letter-spacing: #{$letter-spacing / $font-size}em;
+    }
+	color: $color;
+}
+
+@mixin border($color: $border-color, $thickness: 2px) {
+    border: $thickness solid $color;
+}
+
+@mixin button-setting($font-size, $font-weight, $background-color, $color: $black, $paddingTopBottom: null, $paddingLeftRight: null, $marginTopBottom: null, $marginLeftRight: null) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    background-color: $background-color;
+    margin: $marginTopBottom $marginLeftRight;
+    padding: $paddingTopBottom $paddingLeftRight;
+    color: $color;
+    border: none;
+    border-radius: $default-border-radius;
+    cursor: pointer;
+    text-align: center;
+}

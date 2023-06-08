@@ -1,0 +1,79 @@
+mat-sidenav-container {
+    &.mat-drawer-container {
+        background-color: transparent;
+    }
+}
+
+.sidenav-container {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    .sidenav {
+        width: 360px;
+        padding: 10px;
+        background-color: $left-sidenav-bg-color;
+
+        .new-chat {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+
+            .new-chat-btn {
+                cursor: pointer;
+                padding: 15px 20px;
+                margin-right: 10px;
+                display: flex;
+                align-items: center;
+                flex-grow: 2;
+                @include border;
+                border-radius: $default-border-radius;
+
+                mat-icon {
+                    margin-right: 15px;
+                }
+
+                &:hover {
+                    background-color: hsla(240, 9%, 59%, .1);
+                }
+            }
+        }
+
+        .mat-drawer-inner-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .bottom-section {
+            bottom: 0;
+            width: -webkit-fill-available;
+        }
+    }
+
+    .sidenav-icon {
+        @include border();
+        padding: 15px 15px;
+        border-radius: $default-border-radius;
+
+        &:hover {
+            background-color: hsla(240, 9%, 59%, .1);
+        }
+    }
+
+    p {
+        margin-bottom: 5px;
+    }
+}
+
+.chat-list-item {
+    margin-top: 15px;
+}
+
+.group-icons {
+    gap: 10px;
+}

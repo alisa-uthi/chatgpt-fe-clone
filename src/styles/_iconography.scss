@@ -1,0 +1,44 @@
+mat-icon {
+    height: initial !important;
+    width: initial !important;
+    cursor: pointer;
+
+    &.left-sidenav-icon-color {
+        svg {
+            fill: $left-sidenav-icon-color;
+        }
+    }
+
+    &.left-sidenav-icon-in-box-color {
+        svg {
+            fill: $left-sidenav-icon-in-box-color;
+        }
+    }
+
+    &.chat-msg-icon-color {
+        svg {
+            fill: $chat-msg-icon-color;
+        }
+    }
+
+    &.icon-xs {
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &.icon-sm {
+        svg {
+            width: 22px;
+            height: 22px;
+        }
+    }
+
+    &.icon-md {
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+}

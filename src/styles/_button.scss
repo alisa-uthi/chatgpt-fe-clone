@@ -1,0 +1,7 @@
+.elm-btn {
+
+}
+
+.elm-new-feature-btn {
+    @include button-setting(16px, 600, $yellow-color, $black, 5px, 8px);
+}

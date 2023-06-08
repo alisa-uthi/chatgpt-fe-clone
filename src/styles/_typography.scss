@@ -1,0 +1,8 @@
+.elm-sidenav-title {
+    @include typography(18px, $left-sidenav-text-light-color);
+}
+
+.elm-sidenav-label {
+    @include typography(16px, $left-sidenav-text-dark-color);
+    font-weight: 400;
+}
