@@ -52,7 +52,6 @@
 }
 
 .profile-image {
-    @include full-width-height;
     border-radius: 15%;
     object-fit: cover;
 }
