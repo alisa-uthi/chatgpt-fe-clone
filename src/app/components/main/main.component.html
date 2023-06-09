@@ -1,60 +1,22 @@
 <div class="chat-section-container">
     
-    <div class="chat-row-container">
+    <div class="chat-row-container" *ngFor="let chat of selectedChat.messages" [ngClass]="{'chatgpt-message-bg': chat.sender.toUpperCase() == 'CHATGPT'}">
         <div class="chat-container">
             <div class="profile-image-container">
-                <img src="assets/images/account-image.jpg" alt="account-profile-image" class="profile-image">
+                <img class="profile-image" 
+                [src]="chat.sender.toUpperCase() == 'ME' ? 'assets/images/account-image.jpg' : 'assets/images/chatgpt-logo.png'" 
+                alt="chat.sender.toUpperCase() == 'ME' ? account-profile-image : chatgpt-logo">
             </div>
             <div class="message-container message-from-user">
-                <p class="elm-message-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
-                </p>
+                <p class="elm-message-text">{{ chat.content }}</p>
             </div>
-            <div class="actions-group-container">
+            <div class="actions-group-container" *ngIf="chat.sender.toUpperCase() == 'CHATGPT'">
                 <mat-icon svgIcon="icon-content-paste" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
                 <mat-icon svgIcon="icon-thump-up" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
                 <mat-icon svgIcon="icon-thump-down" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
             </div>
         </div>
     </div>
-
-    <!-- <div class="chat-row-container chatgpt-message-bg">
-        <div class="chat-container">
-            <div class="profile-image-container">
-                <img src="assets/images/chatgpt-logo.png" alt="account-profile-image" class="profile-image">
-            </div>
-            <div class="message-container message-from-chatgpt">
-                <p class="elm-message-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
-                </p>
-            </div>
-            <div class="actions-group-container">
-                <mat-icon svgIcon="icon-content-paste" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-                <mat-icon svgIcon="icon-thump-up" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-                <mat-icon svgIcon="icon-thump-down" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-            </div>
-        </div>
-    </div>
-
-    <div class="chat-row-container">
-        <div class="chat-container">
-            <div class="profile-image-container">
-                <img src="assets/images/account-image.jpg" alt="account-profile-image" class="profile-image">
-            </div>
-            <div class="message-container message-from-user">
-                <p class="elm-message-text">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
-                </p>
-            </div>
-            <div class="actions-group-container">
-                <mat-icon svgIcon="icon-content-paste" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-                <mat-icon svgIcon="icon-thump-up" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-                <mat-icon svgIcon="icon-thump-down" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-            </div>
-        </div>
-    </div> -->
 </div>
-
-<!-- TODO: Make dynamic class for chat above ^ -->
 
 <app-send-message-input></app-send-message-input>

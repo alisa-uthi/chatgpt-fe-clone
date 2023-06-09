@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ChatHistoryInformation, ChatInformation } from '../models/chat-history-information.model';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -68,5 +68,9 @@ export class ChatgptService {
 
   onSelectChatTitle(chat: ChatInformation): void {
     this.selectedChatTitleSubject.next(chat);
+  }
+
+  addMessageToChat(message: string, chatId: string) {
+    
   }
 }
