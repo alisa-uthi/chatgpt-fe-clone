@@ -16,11 +16,13 @@ export class ChatHistoryTitlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.chatHistoryInfos = this.chatGptService.getChatHistoryInformationList();
-    this.selectedChat = this.chatHistoryInfos[0].chatList[0];
+    this.chatGptService.selectedChatTitle.subscribe(chat => {
+      this.selectedChat = chat;
+    })
   }
 
   onSelectChat(chat: ChatInformation) {
-    this.selectedChat = chat;
+    this.chatGptService.onSelectChatTitle(chat);
   }
 
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatInformation } from 'src/app/shared/models/chat-history-information.model';
+import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  selectedChat: ChatInformation;
 
-  constructor() { }
+  constructor(private chatGptService: ChatgptService) { }
 
   ngOnInit(): void {
+    this.chatGptService.selectedChatTitle.subscribe(chat => {
+      this.selectedChat = chat;
+    });
   }
 
 }

@@ -4,5 +4,13 @@ export interface ChatHistoryInformation {
 }
 
 export interface ChatInformation {
-    title: string
+    id: string,
+    title: string,
+    messages?: Message[]
+}
+
+export interface Message {
+    id: string,
+    sender: string,
+    content: string
 }
