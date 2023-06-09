@@ -1,1 +1,59 @@
-<button mat-raised-button color="primary">HELLO WORLD</button>
+<div class="chat-section-container">
+    <div class="chat-row-container">
+        <div class="chat-container">
+            <div class="profile-image-container">
+                <img src="assets/images/account-image.jpg" alt="account-profile-image" class="profile-image">
+            </div>
+            <div class="message-container message-from-user">
+                <p class="elm-message-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
+                </p>
+            </div>
+            <div class="actions-group-container">
+                <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-row-container chatgpt-message-bg">
+        <div class="chat-container">
+            <div class="profile-image-container">
+                <img src="assets/images/chatgpt-logo.png" alt="account-profile-image" class="profile-image">
+            </div>
+            <div class="message-container message-from-chatgpt">
+                <p class="elm-message-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
+                </p>
+            </div>
+            <div class="actions-group-container">
+                <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat-row-container">
+        <div class="chat-container">
+            <div class="profile-image-container">
+                <img src="assets/images/account-image.jpg" alt="account-profile-image" class="profile-image">
+            </div>
+            <div class="message-container message-from-user">
+                <p class="elm-message-text">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto optio consectetur, a enim explicabo illo nemo, minus vel hic quia, illum quae saepe beatae cum officiis provident quod dolorum quasi.
+                </p>
+            </div>
+            <div class="actions-group-container">
+                <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- TODO: Make dynamic class for chat above ^ -->
+
+<app-send-message-input></app-send-message-input>

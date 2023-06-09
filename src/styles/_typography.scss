@@ -6,3 +6,15 @@
     @include typography(16px, $left-sidenav-text-dark-color);
     font-weight: 400;
 }
+
+.elm-message-text {
+    font-size: 1.2rem;
+}
+
+.elm-input {
+    @include input-settings;
+
+    &::placeholder {
+        color: $input-text-color;
+    }
+}

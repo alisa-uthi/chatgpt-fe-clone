@@ -1,5 +1,15 @@
 .elm-btn {
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    background-color: transparent;
+}
 
+.submit-btn {
+    padding: 5px;
+    width: 5%;
+    min-width: 40px;
+    max-width: 40px;
 }
 
 .elm-new-feature-btn {

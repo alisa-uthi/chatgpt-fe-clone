@@ -1,20 +1,16 @@
 .layout-container {
     background-color: $body-bg-color;
-    height: 100%;
-    width: 100%;
+    @include full-width-height;
 }
 
 .main-container {
-    padding: 15px;
+    padding: 15px 0;
     max-height: -webkit-fill-available;
-    height: 100%;
+    @include width-height(auto, 100%);
 }
 
 .content-container {
-    height: 100%;
-    width: 70%;
-    margin: 0 auto;
-    background-color: red;
+    @include full-width-height;
 }
 
 .fade-out {
@@ -26,10 +22,8 @@
 }
 
 .tile-container {
+    @include flex-space-between-center;
     cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     white-space: nowrap;
     padding: 15px;
     border-radius: $default-border-radius;
@@ -58,9 +52,59 @@
 }
 
 .profile-image {
-    width: 30px !important;
-    height: 30px !important;
-    border-radius: 3px;
+    @include full-width-height;
+    border-radius: 15%;
+    object-fit: cover;
+}
+
+.chat-section-container {
+    @include full-width-height;
+
+    .chat-row-container {
+        display: flex;
+        line-height: normal;
+        padding: 20px;
+    
+        &.chatgpt-message-bg {
+            background-color: $chat-msg-text-bg-color;
+        }
+
+        .chat-container {
+            @include chat-section-width;
+            display: flex;
+            margin: 0 auto;
+            gap: 30px;
+            align-items: flex-start;
+    
+            .profile-image-container {
+                width: 10%;
+
+                .profile-image {
+                    width: 3rem;
+                    height: 3rem;
+                    object-fit: cover;
+                    float: right;
+                }
+            }
+        
+            .message-container {
+                flex-grow: 1;
+
+                &.message-from-user {
+                    color: $user-msg-text-color;
+                }
+
+                &.message-from-chatgpt {
+                    color: $chat-msg-text-color;
+                }
+            }
+        
+            .actions-group-container {
+                width: 20%;
+                @include flex-space-between-center;
+            }
+        }
+    }
 }
     
 .padding-y-5 {
