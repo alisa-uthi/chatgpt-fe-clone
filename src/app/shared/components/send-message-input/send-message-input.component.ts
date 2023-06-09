@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { ChatInformation } from '../../models/chat-history-information.model';
+import { ChatgptService } from '../../services/chatgpt.service';
 
 @Component({
   selector: 'app-send-message-input',
@@ -7,20 +9,27 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./send-message-input.component.scss']
 })
 export class SendMessageInputComponent implements OnInit {
+  selectedChat: ChatInformation;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private chatgptService: ChatgptService
+  ) { }
 
   form = this.fb.group({
     message: ['', Validators.required]
   });
 
   ngOnInit(): void {
+    this.chatgptService.selectedChatTitle.subscribe(chat => {
+      this.selectedChat = chat;
+    });
   }
 
   onSubmit() {
     console.log('onsubmit');
     if (this.form.valid) {
-      console.log(this.form.value);
+      this.chatgptService.addMessageToChat(this.form.get('message')!.value!, this.selectedChat.id);
     }
   }
 }
