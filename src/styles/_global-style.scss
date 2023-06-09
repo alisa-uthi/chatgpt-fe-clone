@@ -1,7 +1,20 @@
-.main-container {
+.layout-container {
     background-color: $body-bg-color;
     height: 100%;
     width: 100%;
+}
+
+.main-container {
+    padding: 15px;
+    max-height: -webkit-fill-available;
+    height: 100%;
+}
+
+.content-container {
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+    background-color: red;
 }
 
 .fade-out {
@@ -42,6 +55,12 @@
     &:hover, &.selected {
         background-color: $left-sidenav-box-bg-color;
     }
+}
+
+.profile-image {
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 3px;
 }
     
 .padding-y-5 {

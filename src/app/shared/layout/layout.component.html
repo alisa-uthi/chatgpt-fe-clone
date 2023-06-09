@@ -1,0 +1,63 @@
+<div class="layout-container">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #sidenav mode="side" class="sidenav" opened>
+            <!-- Top Section -->
+            <section class="top-section">
+              <!-- New Chat row -->
+              <div class="new-chat" fxLayout="row" fxFlexFill>
+                <div class="new-chat-btn">
+                  <mat-icon svgIcon="icon-add" class="left-sidenav-icon-color icon-sm"></mat-icon>
+                  <p class="elm-sidenav-title">New chat</p>
+                </div>
+                <span>
+                  <mat-icon svgIcon="icon-dock-to-right" class="sidenav-icon left-sidenav-icon-color icon-sm" (click)="sidenav.close()"></mat-icon>
+                </span>
+              </div>
+        
+              <!-- Chat History -->
+              <app-chat-history-titles></app-chat-history-titles>
+            </section>
+        
+            <!-- Bottom Section -->
+            <section class="bottom-section">
+              <app-divider></app-divider>
+              
+              <!-- Upgrade To Plus -->
+              <div class="tile-container">
+                <div class="left-section">
+                  <mat-icon svgIcon="icon-person" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                  <span class="elm-sidenav-title tile-text">Upgrade To Plus</span>
+                </div>
+                <div class="right-section">
+                  <button class="elm-new-feature-btn">NEW</button>
+                </div>
+              </div>
+        
+              <!-- Account Info -->
+              <div class="tile-container">
+                <div class="left-section">
+                  <img src="assets/images/account-image.jpg" alt="account-profile-image" class="profile-image">
+                  <span class="elm-sidenav-title tile-text fade-out">Alis Uthikamporn</span>
+                </div>
+                <div class="right-section">
+                  <mat-icon svgIcon="icon-more-horizon" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                </div>
+              </div>
+            </section>
+          </mat-sidenav>
+          
+        <mat-sidenav-content>
+          <main class="main-container">
+            <mat-icon svgIcon="icon-dock-to-right" 
+              class="sidenav-icon left-sidenav-icon-color icon-sm" 
+              *ngIf="!sidenav.opened"
+              (click)="sidenav.open()">
+            </mat-icon>
+            
+            <div class="content-container">
+              <router-outlet></router-outlet>
+            </div>
+          </main>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

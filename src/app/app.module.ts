@@ -5,11 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
-import { MainComponent } from './components/main/main.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatIconRegistry } from '@angular/material/icon';
+import { LayoutComponent } from './shared/layout/layout.component';
 
 export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
   return () => {
@@ -21,8 +21,8 @@ export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: Do
 
 @NgModule({
   declarations: [
-    	AppComponent,
-      MainComponent,
+    AppComponent,
+    LayoutComponent
   ],
   imports: [
 		SharedModule,

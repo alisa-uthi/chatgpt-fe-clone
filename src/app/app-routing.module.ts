@@ -1,17 +1,25 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './components/main/main.component';
 
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'main',
     pathMatch: 'full',
-    component: MainComponent
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: 'main',
+        loadChildren: () => import('../app/components/main/main.module').then(m => m.MainModule)
+      }
+    ]
   },
   {
     path: '**',
-    component: MainComponent
-  }
+    redirectTo: 'main',
+  },
 ];
 
 @NgModule({
