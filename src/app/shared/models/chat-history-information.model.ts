@@ -1,11 +1,7 @@
-export interface ChatHistoryInformation {
-    dateText: string,
-    chatList: ChatInformation[]
-}
-
 export interface ChatInformation {
     id: string,
     title: string,
+    createdDate: Date,
     messages?: Message[]
 }
 

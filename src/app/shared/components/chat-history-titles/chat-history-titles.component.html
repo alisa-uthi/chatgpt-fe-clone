@@ -1,19 +1,21 @@
-<div class="chat-list-item" *ngFor="let chatHistoryInfo of chatHistoryInfos">
+<div class="chat-list-item" *ngFor="let item of allChats | keyvalue : returnZero">
   <p class="elm-sidenav-label padding-left-15 padding-y-5">
-    {{ chatHistoryInfo.dateText }}
+    {{ item.key }}
   </p>
 
-  <div class="tile-container" [ngClass]="{ selected: selectedChat == item }" 
-    *ngFor="let item of chatHistoryInfo.chatList" (click)="onSelectChat(item)">
-    <div class="left-section">
-      <mat-icon svgIcon="icon-chat-bubble" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-      <p class="elm-sidenav-title tile-text fade-out">{{ item.title }}</p>
-    </div>
+  <div *ngFor="let chat of $any(item).value" (click)="onSelectChat(chat)">
+    <div class="tile-container" [ngClass]="{ 'selected': selectedChat.id == chat.id }">
+      <div class="left-section">
+        <mat-icon svgIcon="icon-chat-bubble" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+        <p class="elm-sidenav-title tile-text fade-out">{{ chat.title }}</p>
+      </div>
 
-    <div class="right-section group-icons">
-      <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-      <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-      <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+      <div class="right-section group-icons">
+        <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+        <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+        <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+      </div>
     </div>
   </div>
+
 </div>

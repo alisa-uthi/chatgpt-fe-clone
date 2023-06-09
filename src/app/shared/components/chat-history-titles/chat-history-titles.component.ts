@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatHistoryInformation, ChatInformation } from 'src/app/shared/models/chat-history-information.model';
+import { ChatInformation } from 'src/app/shared/models/chat-history-information.model';
 import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
 
 @Component({
@@ -8,14 +8,13 @@ import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
   styleUrls: ['./chat-history-titles.component.scss']
 })
 export class ChatHistoryTitlesComponent implements OnInit {
-  chatHistoryInfos: ChatHistoryInformation[];
-
+  allChats: any;
   selectedChat: ChatInformation;
   
   constructor(private chatGptService: ChatgptService) { }
 
   ngOnInit(): void {
-    this.chatHistoryInfos = this.chatGptService.getChatHistoryInformationList();
+    this.allChats = this.chatGptService.getChatInfosGroupByCreatedPeriod();
     this.chatGptService.selectedChatTitle.subscribe(chat => {
       this.selectedChat = chat;
     })
@@ -25,4 +24,7 @@ export class ChatHistoryTitlesComponent implements OnInit {
     this.chatGptService.onSelectChatTitle(chat);
   }
 
+  returnZero(): number {
+    return 0;
+  }
 }
