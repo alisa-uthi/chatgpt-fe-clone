@@ -1,10 +1,11 @@
-<form class="send-a-message-form" [formGroup]="form">
+<form class="send-a-message-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="input-container">
-        <input type="text" class="elm-input" placeholder="Send a message."
-        formControlName="message" id="message" name="message">
+        <textarea matInput class="elm-input" placeholder="Send a message."
+        cdkTextareaAutosize cdkAutosizeMinRows="1" #autosize="cdkTextareaAutosize"
+        formControlName="message" id="message" name="message"></textarea>
     </div>
 
-    <button class="elm-btn submit-btn">
-        <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+    <button class="elm-btn submit-btn" type="submit" [disabled]="form.invalid">
+        <mat-icon svgIcon="icon-send" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
     </button>
 </form>

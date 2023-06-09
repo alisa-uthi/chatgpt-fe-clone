@@ -62,7 +62,6 @@ $chat-msg-icon-color: map-get($chatgpt-palette-grey , 500) !default;
 // Send a Message section
 $input-text-color: map-get($chatgpt-palette-grey , 500) !default;
 $input-bg-color: map-get($chatgpt-palette-grey , 800) !default;
-$input-submit-color: $green-color;
 
 // Regenerate Response section
 $regen-response-text-color: map-get($chatgpt-palette-grey , 200) !default;

@@ -18,6 +18,7 @@ export class SendMessageInputComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('onsubmit');
     if (this.form.valid) {
       console.log(this.form.value);
     }
