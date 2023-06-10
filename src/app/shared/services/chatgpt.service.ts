@@ -9,7 +9,7 @@ import { nanoid } from 'nanoid';
 })
 export class ChatgptService {
   
-  chats: ChatInformation[] = [
+  private chats: ChatInformation[] = [
     {
       id: '093d5f9d-7436-4360-9bf1-4e297576c028',
       title: 'This is a very long title',
@@ -72,10 +72,13 @@ export class ChatgptService {
       }), {});;
   }
 
+  private allChatsSubject = new BehaviorSubject(this.getChatInfosGroupByCreatedPeriod());
+  public allChats = this.allChatsSubject.asObservable();
+
   private selectedChatTitleSubject = new BehaviorSubject<(ChatInformation)>(
     this.getChatInfosGroupByCreatedPeriod()[Object.keys(this.getChatInfosGroupByCreatedPeriod())[0]][0]
   );
-  selectedChatTitle = this.selectedChatTitleSubject.asObservable();
+  public selectedChatTitle = this.selectedChatTitleSubject.asObservable();
 
   onSelectChatTitle(chat: ChatInformation): void {
     this.selectedChatTitleSubject.next(chat);
@@ -98,6 +101,19 @@ export class ChatgptService {
       ];
       chat.messages?.push(...newMessage);
       this.selectedChatTitleSubject.next(chat);
+    }
+  }
+
+  deleteChat(chatId: string) {
+    this.chats = this.chats.filter(chat => chat.id != chatId);
+    this.allChatsSubject.next(this.getChatInfosGroupByCreatedPeriod());
+  }
+
+  editChatTitle(chatId: string, title: string) {
+    const chat = this.chats.find(chat => chat.id == chatId);
+    if (!!chat) {
+      chat.title = title;
+      this.allChatsSubject.next(this.getChatInfosGroupByCreatedPeriod());
     }
   }
 }
