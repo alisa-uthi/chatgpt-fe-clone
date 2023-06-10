@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { ChatInformation } from '../models/chat-history-information.model';
+import { ChatInformation, Message } from '../models/chat-history-information.model';
 import { BehaviorSubject } from 'rxjs';
 import { getDisplayedCreatedPeriod, getMockCreatedDate } from '../utils/datetime-utils';
+import { nanoid } from 'nanoid';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,23 @@ export class ChatgptService {
   }
 
   addMessageToChat(message: string, chatId: string) {
-    // TODO
+    const chat = this.chats.find(chat => chat.id == chatId);
+    if (!!chat) {
+      const newMessage: Message[] = [
+        {
+          id: nanoid(),
+          content: message,
+          sender: 'me'
+        },
+        {
+          id: nanoid(),
+          content: 'This is a mock reply from ChatGPT',
+          sender: 'chatgpt'
+        }
+      ];
+      chat.messages?.push(...newMessage);
+      console.log(chat)
+      this.selectedChatTitleSubject.next(chat);
+    }
   }
 }
