@@ -97,7 +97,6 @@ export class ChatgptService {
         }
       ];
       chat.messages?.push(...newMessage);
-      console.log(chat)
       this.selectedChatTitleSubject.next(chat);
     }
   }

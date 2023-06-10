@@ -27,7 +27,6 @@ export class SendMessageInputComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onsubmit');
     if (this.form.valid) {
       this.chatgptService.addMessageToChat(this.form.get('message')!.value!, this.selectedChat.id);
     }

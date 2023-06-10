@@ -3,14 +3,33 @@
     @include full-width-height;
 }
 
-.main-container {
-    padding: 15px 0;
+main {
+    padding-top: 15px;
     max-height: -webkit-fill-available;
     @include width-height(auto, 100%);
+    position: relative;
 }
 
-.content-container {
+.wrapper-container {
+    @include width-height(100%, auto);
+    min-height: 100%;
+    position: relative;
+}
+
+.full-width-height {
     @include full-width-height;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
 }
 
 .fade-out {
@@ -108,15 +127,22 @@
     }
 }
 
+.send-message-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(0deg, #353840 70%, transparent);
+}
+
 .send-a-message-form {
-    @include chat-section-width;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     align-items: flex-end;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transform: translate(-50%, 0);
+    margin-top: 2rem;
+    margin-bottom: 3rem;
     background-color: $input-bg-color;
     border-radius: $default-border-radius;
     padding: 15px;

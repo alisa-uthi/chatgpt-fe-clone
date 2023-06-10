@@ -47,14 +47,14 @@
           </mat-sidenav>
           
         <mat-sidenav-content>
-          <main class="main-container">
+          <main>
             <mat-icon svgIcon="icon-dock-to-right" 
-              class="sidenav-icon left-sidenav-icon-color icon-sm margin-left-15" 
+              class="sidenav-icon sidenav-icon-float left-sidenav-icon-color icon-sm margin-left-15" 
               *ngIf="!sidenav.opened"
               (click)="sidenav.open()">
             </mat-icon>
             
-            <div class="content-container">
+            <div class="wrapper-container">
               <router-outlet></router-outlet>
             </div>
           </main>
