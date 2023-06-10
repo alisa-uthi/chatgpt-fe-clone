@@ -3,6 +3,7 @@ import { ChatInformation, Message } from '../models/chat-history-information.mod
 import { BehaviorSubject } from 'rxjs';
 import { getDisplayedCreatedPeriod, getMockCreatedDate } from '../utils/datetime-utils';
 import { nanoid } from 'nanoid';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +32,18 @@ export class ChatgptService {
       id: '52e1b9b0-137a-42ef-8bff-c51d0ce0869f',
       title: 'Title Yesterday 1',
       createdDate: getMockCreatedDate('yesterday'),
+      messages: [
+        {
+          id: '25d580e5-72db-41e4-96ad-dc6aaa470jkf',
+          sender: 'me',
+          content: 'Well, well'
+        },
+        {
+          id: '3704d387-49a9-4b54-9b42-a593ogs5f89b',
+          sender: 'chatgpt',
+          content: 'Lorem Lorem Lorem Lorem'
+        },
+      ]
     },
     {
       id: '2bc42646-af0f-44de-bfed-06e0faf6096b',
@@ -59,7 +72,7 @@ export class ChatgptService {
     }
   ];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   getChatInfosGroupByCreatedPeriod(): {} {
     return this.chats
@@ -81,6 +94,7 @@ export class ChatgptService {
   public selectedChatTitle = this.selectedChatTitleSubject.asObservable();
 
   onSelectChatTitle(chat: ChatInformation): void {
+    this.router.navigate(['/c', chat.id ]);
     this.selectedChatTitleSubject.next(chat);
   }
 

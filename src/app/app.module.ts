@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatIconRegistry } from '@angular/material/icon';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { ConversationComponent } from './components/conversation/conversation.component';
 
 export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
   return () => {
@@ -22,7 +23,8 @@ export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: Do
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    ConversationComponent
   ],
   imports: [
 		SharedModule,
