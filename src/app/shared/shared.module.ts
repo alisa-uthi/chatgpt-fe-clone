@@ -2,15 +2,17 @@ import { NgModule } from "@angular/core";
 import { MaterialModule } from "./material.module";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { ChatHistoryTitlesComponent } from "./components/chat-history-titles/chat-history-titles.component";
+import { ChatTitlesComponent } from "./components/chat-titles/chat-titles.component";
 import { DividerComponent } from "./components/divider/divider.component";
 import { SendMessageInputComponent } from "./components/send-message-input/send-message-input.component";
+import { ChatTileComponent } from "./components/chat-titles/chat-tile/chat-tile.component";
 
 @NgModule({
     declarations: [
-        ChatHistoryTitlesComponent,
+        ChatTitlesComponent,
+        ChatTileComponent,
         DividerComponent,
-        SendMessageInputComponent
+        SendMessageInputComponent,
     ],
     imports: [
         MaterialModule,
@@ -20,7 +22,7 @@ import { SendMessageInputComponent } from "./components/send-message-input/send-
     ],
     exports: [
         MaterialModule,
-        ChatHistoryTitlesComponent,
+        ChatTitlesComponent,
         DividerComponent,
         SendMessageInputComponent
     ],

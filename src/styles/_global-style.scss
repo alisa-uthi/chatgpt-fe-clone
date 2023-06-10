@@ -49,13 +49,13 @@ main {
 
     .left-section {
         display: flex;
-        gap: 30px;
+        gap: 20px;
         flex-grow: 1;
         overflow: hidden;
 
         .tile-text {
             text-overflow: clip;
-            width: 65%;
+            width: 90%;
         }
     }
     .right-section {

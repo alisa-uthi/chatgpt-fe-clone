@@ -1,0 +1,10 @@
+<div class="chat-list-item" *ngFor="let item of allChats | keyvalue : returnZero">
+  <p class="elm-sidenav-label padding-left-15 padding-y-5">
+    {{ item.key }}
+  </p>
+
+  <div *ngFor="let chat of $any(item).value">
+    <app-chat-tile [chat]="chat"></app-chat-tile>
+  </div>
+
+</div>
