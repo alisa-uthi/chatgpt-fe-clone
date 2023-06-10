@@ -91,8 +91,8 @@ main {
             align-items: flex-start;
     
             .profile-image-container {
-                width: 10%;
-                min-width: 10%;
+                width: 5%;
+                min-width: 5%;
 
                 .profile-image {
                     width: 3rem;
@@ -133,7 +133,7 @@ main {
 }
 
 .send-a-message-form {
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     align-items: flex-end;

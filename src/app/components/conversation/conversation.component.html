@@ -11,7 +11,8 @@
                     <p class="elm-message-text">{{ chat.content }}</p>
                 </div>
                 <div class="actions-group-container" *ngIf="chat.sender.toUpperCase() == 'CHATGPT'">
-                    <mat-icon svgIcon="icon-content-paste" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+                    <mat-icon #copyIcon [id]="'copy-icon-' + chat.id" svgIcon="icon-content-paste" 
+                        class="left-sidenav-icon-in-box-color icon-sm" (click)="copyMessage(chat.id, chat.content)"></mat-icon>
                     <mat-icon svgIcon="icon-thump-up" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
                     <mat-icon svgIcon="icon-thump-down" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
                 </div>
