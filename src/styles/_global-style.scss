@@ -46,21 +46,17 @@ main {
     white-space: nowrap;
     padding: 15px;
     border-radius: $default-border-radius;
+    gap: 10px;
 
     .left-section {
         display: flex;
         gap: 20px;
-        flex-grow: 1;
+        width: 100%;
         overflow: hidden;
-
-        .tile-text {
-            text-overflow: clip;
-            width: 90%;
-        }
     }
     .right-section {
         display: flex;
-        width: 80px;
+        width: 120px;
         justify-content: end;
         align-items: center;
     }

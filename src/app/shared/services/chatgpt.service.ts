@@ -12,7 +12,7 @@ export class ChatgptService {
   private chats: ChatInformation[] = [
     {
       id: '093d5f9d-7436-4360-9bf1-4e297576c028',
-      title: 'This is a very long title',
+      title: 'This is a very long title5555555',
       createdDate: getMockCreatedDate('today'),
       messages: [
         {

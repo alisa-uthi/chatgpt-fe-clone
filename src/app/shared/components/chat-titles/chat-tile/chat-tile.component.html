@@ -1,8 +1,8 @@
 <div class="tile-container" [ngClass]="{ 'selected': selectedChat.id == chat.id }">
-    <div class="left-section" (click)="onSelectChat(chat)">
+    <div class="left-section fade-out" (click)="onSelectChat(chat)">
       <mat-icon [svgIcon]="deletedChatId == chat.id ? 'icon-delete' : 'icon-chat-bubble'" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
       <div *ngIf="mode == MODE.VIEW" class="full-width">
-        <p class="elm-sidenav-title tile-text fade-out">{{ chat.title }}</p>
+        <p class="elm-sidenav-title">{{ chat.title }}</p>
       </div>
       <div *ngIf="mode == MODE.EDIT && editeChatTitleId == chat.id">
         <form [formGroup]="chatForm">

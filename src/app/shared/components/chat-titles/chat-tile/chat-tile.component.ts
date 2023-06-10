@@ -41,13 +41,12 @@ export class ChatTileComponent implements OnInit {
   onEditChat(chatId: string) {
     this.editeChatTitleId = chatId;
     this.mode = MODE.EDIT;
-    // this.deletedChatId = null;
+    this.chatForm.get('title')?.setValue(this.chat.title);
   }
 
   onDeleteChat(chatId: string) {
     this.deletedChatId = chatId;
     this.mode = MODE.DELETE;
-    // this.editeChatTitleId = null;
   }
 
   onConfirm() {
