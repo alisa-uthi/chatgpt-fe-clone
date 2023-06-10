@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ChatInformation } from 'src/app/shared/models/chat-history-information.model';
 import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
 
 @Component({

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ChatInformation } from 'src/app/shared/models/chat-history-information.model';
 import { MODE } from 'src/app/shared/models/common.constant';
 import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
@@ -25,7 +25,7 @@ export class ChatTileComponent implements OnInit {
   ) { }
 
   chatForm = this.fb.group({
-    title: ['']
+    title: ['', Validators.required]
   });
   
   ngOnInit(): void {
@@ -49,8 +49,15 @@ export class ChatTileComponent implements OnInit {
     this.mode = MODE.DELETE;
   }
 
+  onShareChat(chatId: string) {
+    alert('Not Implemented :)');
+  }
+
   onConfirm() {
-    if (this.mode == MODE.DELETE && this.deletedChatId) {
+    if (this.mode == MODE.EDIT && this.editeChatTitleId) {
+      if (this.chatForm.invalid) return;
+      this.chatGptService.editChatTitle(this.editeChatTitleId, this.chatForm.get('title')?.value!)
+    } else if (this.mode == MODE.DELETE && this.deletedChatId) {
       this.chatGptService.deleteChat(this.deletedChatId);
       this.editeChatTitleId = null;
     }

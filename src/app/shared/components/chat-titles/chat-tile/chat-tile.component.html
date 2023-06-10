@@ -1,12 +1,13 @@
 <div class="tile-container" [ngClass]="{ 'selected': selectedChat.id == chat.id }">
     <div class="left-section fade-out" (click)="onSelectChat(chat)">
       <mat-icon [svgIcon]="deletedChatId == chat.id ? 'icon-delete' : 'icon-chat-bubble'" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
-      <div *ngIf="mode == MODE.VIEW" class="full-width">
+      <div *ngIf="mode != MODE.EDIT" class="full-width">
         <p class="elm-sidenav-title">{{ chat.title }}</p>
       </div>
       <div *ngIf="mode == MODE.EDIT && editeChatTitleId == chat.id">
         <form [formGroup]="chatForm">
-          <input type="elm-input" name="title" id="title" formControlName="title">
+          <input type="text" name="title" id="title" formControlName="title"
+          class="elm-input elm-sidenav-title" />
         </form>
       </div>
     </div>
@@ -15,7 +16,7 @@
       <!-- Icons before clicking delete -->
       <div *ngIf="mode == MODE.VIEW" class="group-icons">
         <mat-icon svgIcon="icon-edit" class="left-sidenav-icon-in-box-color icon-sm" (click)="onEditChat(chat.id)"></mat-icon>
-        <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
+        <mat-icon svgIcon="icon-upload" class="left-sidenav-icon-in-box-color icon-sm" (click)="onShareChat(chat.id)"></mat-icon>
         <mat-icon svgIcon="icon-delete" class="left-sidenav-icon-in-box-color icon-sm" (click)="onDeleteChat(chat.id)"></mat-icon>
       </div>
         
