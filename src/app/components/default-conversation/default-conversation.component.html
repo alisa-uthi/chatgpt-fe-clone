@@ -8,7 +8,7 @@
                 <p class="elm-text-md">Examples</p>
             </div>
             <div *ngFor="let message of exampleMessages">
-                <app-usage-card [isClickable]="true">
+                <app-usage-card [isClickable]="true" (click)="onCardClick(message)">
                     <p class="elm-message-text white padding-right-10">
                         "{{ message }}"
                         <mat-icon svgIcon="icon-arrow-forward" class="left-sidenav-icon-color icon-sm"></mat-icon>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ChatgptService } from 'src/app/shared/services/chatgpt.service';
 
 @Component({
   selector: 'app-default-conversation',
@@ -25,9 +26,13 @@ export class DefaultConversationComponent implements OnInit {
     "Limited knowledge of world and events after 2021"
   ];
 
-  constructor() { }
+  constructor(private chatgptService: ChatgptService) { }
 
   ngOnInit(): void {
+  }
+
+  onCardClick(message: string) {
+    this.chatgptService.setInputMessage(message);
   }
 
 }

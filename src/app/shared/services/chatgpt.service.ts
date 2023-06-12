@@ -91,6 +91,13 @@ export class ChatgptService {
   private selectedChatTitleSubject = new BehaviorSubject<(ChatInformation | undefined | null)>(null);
   public selectedChatTitle = this.selectedChatTitleSubject.asObservable();
 
+  private inputMessageSubject = new BehaviorSubject('');
+  public inputMessage = this.inputMessageSubject.asObservable();
+  
+  setInputMessage(message: string) {
+    this.inputMessageSubject.next(message);
+  }
+
   setSelectedChatTitle(chat?: ChatInformation) {
     this.selectedChatTitleSubject.next(chat);
   }

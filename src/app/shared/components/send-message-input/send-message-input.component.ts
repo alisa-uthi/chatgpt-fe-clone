@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ChatInformation } from '../../models/chat-history-information.model';
 import { ChatgptService } from '../../services/chatgpt.service';
+import { SubSink } from 'subsink';
 
 @Component({
   selector: 'app-send-message-input',
@@ -10,6 +11,7 @@ import { ChatgptService } from '../../services/chatgpt.service';
 })
 export class SendMessageInputComponent implements OnInit {
   selectedChat: ChatInformation | null | undefined;
+  private subs = new SubSink();
 
   constructor(
     private fb: FormBuilder,
@@ -21,9 +23,18 @@ export class SendMessageInputComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.chatgptService.selectedChatTitle.subscribe(chat => {
-      this.selectedChat = chat;
-    });
+    this.subs.add(
+      this.chatgptService.selectedChatTitle.subscribe(chat => {
+        this.selectedChat = chat;
+      }),
+      this.chatgptService.inputMessage.subscribe(input => {
+        this.form.get('message')?.setValue(input);
+      })
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
   onSubmit() {
