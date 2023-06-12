@@ -12,7 +12,7 @@ import { MatIcon } from '@angular/material/icon';
 export class ConversationComponent implements OnInit {
   @ViewChildren('copyIcon') copyIcon: QueryList<MatIcon>;
 
-  selectedChat: ChatInformation;
+  selectedChat: ChatInformation | null | undefined;
 
   constructor(
     private chatGptService: ChatgptService,

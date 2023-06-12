@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ChatgptService } from '../services/chatgpt.service';
 
 @Component({
   selector: 'app-layout',
@@ -8,12 +9,16 @@ import { Router } from '@angular/router';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(
+    private route: Router,
+    private chatgptService: ChatgptService
+  ) { }
 
   ngOnInit(): void {
   }
 
   navigateToDefaultConversion() {
     this.route.navigate(['/new'])
+    this.chatgptService.setSelectedChatTitle(undefined);
   }
 }

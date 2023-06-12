@@ -9,7 +9,7 @@ import { ChatgptService } from '../../services/chatgpt.service';
   styleUrls: ['./send-message-input.component.scss']
 })
 export class SendMessageInputComponent implements OnInit {
-  selectedChat: ChatInformation;
+  selectedChat: ChatInformation | null | undefined;
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +28,12 @@ export class SendMessageInputComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      this.chatgptService.addMessageToChat(this.form.get('message')!.value!, this.selectedChat.id);
+      if (!this.selectedChat) {
+        this.chatgptService.createNewChat(this.form.get('message')!.value!)
+      } else {
+        this.chatgptService.addMessageToChat(this.form.get('message')!.value!, this.selectedChat!.id);
+      }
+      this.form.reset();
     }
   }
 }

@@ -1,4 +1,4 @@
-<div class="tile-container" [ngClass]="{ 'selected': selectedChat.id == chat.id }">
+<div class="tile-container" [ngClass]="{ 'selected': selectedChat?.id == chat.id }">
     <div class="left-section fade-out" (click)="onSelectChat(chat)">
       <mat-icon [svgIcon]="deletedChatId == chat.id ? 'icon-delete' : 'icon-chat-bubble'" class="left-sidenav-icon-in-box-color icon-sm"></mat-icon>
       <div *ngIf="mode != MODE.EDIT" class="full-width">

@@ -1,11 +1,11 @@
 <div class="full-width-height">
     <div class="chat-section-container" >
-        <div class="chat-row-container" *ngFor="let chat of selectedChat.messages" [ngClass]="{'chatgpt-message-bg': chat.sender.toUpperCase() == 'CHATGPT'}">
+        <div class="chat-row-container" *ngFor="let chat of selectedChat?.messages" [ngClass]="{'chatgpt-message-bg': chat.sender.toUpperCase() == 'CHATGPT'}">
             <div class="chat-container">
                 <div class="profile-image-container">
                     <img class="profile-image" 
-                    [src]="chat.sender.toUpperCase() == 'ME' ? 'assets/images/account-image.jpg' : 'assets/images/chatgpt-logo.png'" 
-                    alt="chat.sender.toUpperCase() == 'ME' ? account-profile-image : chatgpt-logo">
+                    [src]="chat.sender.toUpperCase() == 'SELF' ? 'assets/images/account-image.jpg' : 'assets/images/chatgpt-logo.png'" 
+                    alt="chat.sender.toUpperCase() == 'SELF' ? account-profile-image : chatgpt-logo">
                 </div>
                 <div class="message-container message-from-user">
                     <p class="elm-message-text">{{ chat.content }}</p>
@@ -18,9 +18,5 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="send-message-container">
-        <app-send-message-input></app-send-message-input>
     </div>
 </div>

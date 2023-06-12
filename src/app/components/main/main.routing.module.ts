@@ -7,18 +7,27 @@ import { DefaultConversationComponent } from "../default-conversation/default-co
 const routes: Routes = [
     {
         path: '',
+        redirectTo: 'new',
+        pathMatch: 'full'
+    },
+    {
+        path: '',
         component: MainComponent,
         children: [
             {
                 path: 'new',
                 component: DefaultConversationComponent
+            },
+            {
+                path: 'c/:id',
+                component: ConversationComponent
             }
         ]
     },
     {
-        path: 'c/:id',
-        component: ConversationComponent
-    }
+        path: '**',
+        redirectTo: 'new',
+    },
 ];
 
 @NgModule({

@@ -18,7 +18,7 @@ export class ChatgptService {
       messages: [
         {
           id: '25d580e5-72db-41e4-96ad-dc6aaa470863',
-          sender: 'me',
+          sender: 'self',
           content: 'Hello World!'
         },
         {
@@ -35,7 +35,7 @@ export class ChatgptService {
       messages: [
         {
           id: '25d580e5-72db-41e4-96ad-dc6aaa470jkf',
-          sender: 'me',
+          sender: 'self',
           content: 'Well, well'
         },
         {
@@ -72,7 +72,7 @@ export class ChatgptService {
     }
   ];
 
-  constructor(private router: Router) { }
+  constructor(private route: Router) { }
 
   getChatInfosGroupByCreatedPeriod(): {} {
     return this.chats
@@ -88,13 +88,15 @@ export class ChatgptService {
   private allChatsSubject = new BehaviorSubject(this.getChatInfosGroupByCreatedPeriod());
   public allChats = this.allChatsSubject.asObservable();
 
-  private selectedChatTitleSubject = new BehaviorSubject<(ChatInformation)>(
-    this.getChatInfosGroupByCreatedPeriod()[Object.keys(this.getChatInfosGroupByCreatedPeriod())[0]][0]
-  );
+  private selectedChatTitleSubject = new BehaviorSubject<(ChatInformation | undefined | null)>(null);
   public selectedChatTitle = this.selectedChatTitleSubject.asObservable();
 
+  setSelectedChatTitle(chat?: ChatInformation) {
+    this.selectedChatTitleSubject.next(chat);
+  }
+
   onSelectChatTitle(chat: ChatInformation): void {
-    this.router.navigate(['/c', chat.id ]);
+    this.route.navigate(['/c', chat.id ]);
     this.selectedChatTitleSubject.next(chat);
   }
 
@@ -105,7 +107,7 @@ export class ChatgptService {
         {
           id: nanoid(),
           content: message,
-          sender: 'me'
+          sender: 'self'
         },
         {
           id: nanoid(),
@@ -118,9 +120,24 @@ export class ChatgptService {
     }
   }
 
+  createNewChat(message: string) {
+    let newChat: ChatInformation = {
+      id: nanoid(),
+      title: 'Title Request',
+      createdDate: getMockCreatedDate('today'),
+      messages: []
+    };
+    this.chats.push(newChat);
+    this.addMessageToChat(message, newChat.id);
+    this.allChatsSubject.next(this.getChatInfosGroupByCreatedPeriod());
+    this.route.navigate(['/c', newChat.id ]);
+  }
+
   deleteChat(chatId: string) {
     this.chats = this.chats.filter(chat => chat.id != chatId);
+    this.setSelectedChatTitle();
     this.allChatsSubject.next(this.getChatInfosGroupByCreatedPeriod());
+    this.route.navigate(['/new']);
   }
 
   editChatTitle(chatId: string, title: string) {

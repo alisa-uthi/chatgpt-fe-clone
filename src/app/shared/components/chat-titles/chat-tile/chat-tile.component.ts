@@ -13,7 +13,7 @@ export class ChatTileComponent implements OnInit {
 
   @Input() chat: ChatInformation;
 
-  selectedChat: ChatInformation;
+  selectedChat: ChatInformation | null | undefined;
   editeChatTitleId: string | null = null;
   deletedChatId: string | null = null;
   MODE = MODE;
