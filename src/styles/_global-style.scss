@@ -3,11 +3,19 @@
     @include full-width-height;
 }
 
+mat-sidenav-content::-webkit-scrollbar {
+    display: none;
+}
+
 main {
     padding-top: 15px;
     @include width-height(auto, 100%);
     position: relative;
     overflow-y: scroll;
+
+    &::-webkit-scrollbar, mat-sidenav-content::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 .wrapper-container {
