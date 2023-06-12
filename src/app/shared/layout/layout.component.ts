@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ChatgptService } from '../services/chatgpt.service';
 
@@ -8,6 +8,7 @@ import { ChatgptService } from '../services/chatgpt.service';
   styleUrls: ['./layout.component.scss']
 })
 export class LayoutComponent implements OnInit {
+  @ViewChild('scrollContainer') private scrollContainer: ElementRef;
 
   constructor(
     private route: Router,
@@ -15,6 +16,18 @@ export class LayoutComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit(): void {
+    this.scrollToBottom();
+  }
+
+  ngAfterViewChecked() {
+    this.scrollToBottom();
+  }
+
+  scrollToBottom() {
+    this.scrollContainer.nativeElement.scrollTop = this.scrollContainer.nativeElement.scrollHeight;
   }
 
   navigateToDefaultConversion() {

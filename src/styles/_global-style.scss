@@ -5,9 +5,9 @@
 
 main {
     padding-top: 15px;
-    max-height: -webkit-fill-available;
     @include width-height(auto, 100%);
     position: relative;
+    overflow-y: scroll;
 }
 
 .wrapper-container {
