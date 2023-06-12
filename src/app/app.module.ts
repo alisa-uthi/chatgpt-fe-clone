@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { MatIconRegistry } from '@angular/material/icon';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { ConversationComponent } from './components/conversation/conversation.component';
+import { DefaultConversationComponent } from './components/default-conversation/default-conversation.component';
+import { UsageCardComponent } from './components/default-conversation/usage-card/usage-card.component';
 
 export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: DomSanitizer) {
   return () => {
@@ -24,7 +26,9 @@ export function addSvgIconSet(matIconRegistry: MatIconRegistry, domSanitizer: Do
   declarations: [
     AppComponent,
     LayoutComponent,
-    ConversationComponent
+    ConversationComponent,
+    DefaultConversationComponent,
+    UsageCardComponent
   ],
   imports: [
 		SharedModule,

@@ -1,0 +1,49 @@
+<div class="default-conversation-container">
+    <p class="elm-text-lg">ChatGPT Clone</p>
+
+    <div class="usage-wrapper-container">
+        <div>
+            <div class="title-section">
+                <mat-icon svgIcon="icon-sunny" class="left-sidenav-icon-color icon-lg"></mat-icon>
+                <p class="elm-text-md">Examples</p>
+            </div>
+            <div *ngFor="let message of exampleMessages">
+                <app-usage-card [isClickable]="true">
+                    <p class="elm-message-text white padding-right-10">
+                        "{{ message }}"
+                        <mat-icon svgIcon="icon-arrow-forward" class="left-sidenav-icon-color icon-sm"></mat-icon>
+                    </p>
+                </app-usage-card>
+            </div>  
+        </div>
+
+        <div>
+            <div class="title-section">
+                <mat-icon svgIcon="icon-sunny" class="left-sidenav-icon-color icon-lg"></mat-icon>
+                <p class="elm-text-md">Capabilities</p>
+            </div>
+            <div *ngFor="let message of capabilities">
+                <app-usage-card>
+                    <p class="elm-message-text white padding-right-10">
+                        "{{ message }}"
+                    </p>
+                </app-usage-card>
+            </div>  
+        </div>
+
+        <div>
+            <div class="title-section">
+                <mat-icon svgIcon="icon-sunny" class="left-sidenav-icon-color icon-lg"></mat-icon>
+                <p class="elm-text-md">Limitations</p>
+            </div>
+            <div *ngFor="let message of limitations">
+                <app-usage-card>
+                    <p class="elm-message-text white padding-right-10">
+                        "{{ message }}"
+                    </p>
+                </app-usage-card>
+            </div>  
+        </div>
+    </div>
+</div>
+

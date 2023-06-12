@@ -157,7 +157,43 @@ main {
         }
     }
 }
+
+.default-conversation-container {
+    @include width-height(60%, 768px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
     
+    .usage {
+        &-wrapper-container {
+            @include width-height(100%, auto);
+            display: flex;
+            gap: 20px;
+            margin-top: 50px;
+
+            .title-section {
+                margin-bottom: 20px;
+            }
+        }
+
+        &-card {
+            padding: 20px 10px;
+            background-color: $card-bg-color;
+            border-radius: $default-border-radius;
+            @include flex-center-center;
+            margin-bottom: 20px;
+            line-height: 1.5rem;
+        }
+    }
+}
+
+.usage-wrapper-container > * {
+    width: calc(100% / 3);
+    text-align: center;
+}
+
 .padding-y-5 {
     padding-top: 5px;
     padding-bottom: 5px;
@@ -184,6 +220,18 @@ main {
     padding-left: 15px;
 }
 
+.padding-right-10 {
+    padding-right: 10px;
+}
+
+.padding-right-15 {
+    padding-right: 15px;
+}
+
 .margin-left-15 {
     margin-left: 15px;
+}
+
+.clickable {
+    cursor: pointer;
 }

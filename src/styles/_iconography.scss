@@ -41,4 +41,11 @@ mat-icon {
             height: 24px;
         }
     }
+
+    &.icon-lg {
+        svg {
+            width: 32px;
+            height: 32px;
+        }
+    }
 }

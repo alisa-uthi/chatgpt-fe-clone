@@ -51,6 +51,12 @@
     align-items: center;
 }
 
+@mixin flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @mixin input-settings {
     @include typography(1.2rem, $user-msg-text-color);
     background-color: transparent;

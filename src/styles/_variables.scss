@@ -18,7 +18,8 @@ $chatgpt-palette-grey: (
     800 : #40414F,    
     900 : #343541,      
     A100 : #353740,      
-    A200 : #202123,    
+    A200 : #202123,
+    A300 : #41424C,    
     contrast: (
         50 : #000000,
         100 : #000000,
@@ -58,6 +59,7 @@ $user-msg-icon-color: map-get($chatgpt-palette-grey , 500) !default;
 $chat-msg-text-color: map-get($chatgpt-palette-grey , 300) !default;
 $chat-msg-text-bg-color: map-get($chatgpt-palette-grey , 700) !default;
 $chat-msg-icon-color: map-get($chatgpt-palette-grey , 500) !default;
+$card-bg-color: map-get($chatgpt-palette-grey, A300) !default;
 
 // Send a Message section
 $input-text-color: map-get($chatgpt-palette-grey , 500) !default;

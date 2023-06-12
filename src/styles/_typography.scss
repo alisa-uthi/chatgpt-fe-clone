@@ -9,6 +9,10 @@
 
 .elm-message-text {
     font-size: 1.2rem;
+
+    &.white {
+        color: $left-sidenav-text-light-color;
+    }
 }
 
 .elm-input {
@@ -18,3 +22,13 @@
         color: $input-text-color;
     }
 }
+
+.elm-text-md {
+    @include typography(24px, $left-sidenav-text-light-color);
+}
+
+.elm-text-lg {
+    @include typography(40px, $left-sidenav-text-light-color);
+    font-weight: bold;
+}
+
