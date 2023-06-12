@@ -68,3 +68,5 @@ $input-bg-color: map-get($chatgpt-palette-grey , 800) !default;
 // Regenerate Response section
 $regen-response-text-color: map-get($chatgpt-palette-grey , 200) !default;
 $regen-response-text-bg-color: map-get($chatgpt-palette-grey , 900) !default;
+
+$send-message-container-height: 150px

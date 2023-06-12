@@ -58,7 +58,7 @@
 }
 
 @mixin input-settings {
-    @include typography(1.2rem, $user-msg-text-color);
+    @include typography(16px, $user-msg-text-color);
     background-color: transparent;
     border: none;
     outline: none;

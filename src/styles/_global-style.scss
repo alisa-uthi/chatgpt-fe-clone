@@ -12,7 +12,8 @@ main {
 
 .wrapper-container {
     @include width-height(100%, auto);
-    min-height: 100%;
+    min-height: calc(100% - $send-message-container-height);
+    padding-bottom: $send-message-container-height;
     position: relative;
 }
 
@@ -44,7 +45,7 @@ main {
     @include flex-space-between-center;
     cursor: pointer;
     white-space: nowrap;
-    padding: 15px;
+    padding: 10px;
     border-radius: $default-border-radius;
     gap: 10px;
 
@@ -95,8 +96,8 @@ main {
                 min-width: 5%;
 
                 .profile-image {
-                    width: 3rem;
-                    height: 3rem;
+                    width: 2.2rem;
+                    height: 2.2rem;
                     object-fit: cover;
                     float: right;
                 }
@@ -124,7 +125,7 @@ main {
 }
 
 .send-message-container {
-    width: 100%;
+    @include width-height(100%, $send-message-container-height);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -159,7 +160,7 @@ main {
 }
 
 .default-conversation-container {
-    @include width-height(60%, 768px);
+    @include width-height(60%, 700px);
     margin: 0 auto;
     display: flex;
     flex-direction: column;

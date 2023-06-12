@@ -1,14 +1,14 @@
 .elm-sidenav-title {
-    @include typography(18px, $left-sidenav-text-light-color);
+    @include typography(16px, $left-sidenav-text-light-color);
 }
 
 .elm-sidenav-label {
-    @include typography(16px, $left-sidenav-text-dark-color);
+    @include typography(14px, $left-sidenav-text-dark-color);
     font-weight: 400;
 }
 
 .elm-message-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     &.white {
         color: $left-sidenav-text-light-color;
@@ -24,11 +24,11 @@
 }
 
 .elm-text-md {
-    @include typography(24px, $left-sidenav-text-light-color);
+    @include typography(20px, $left-sidenav-text-light-color);
 }
 
 .elm-text-lg {
-    @include typography(40px, $left-sidenav-text-light-color);
+    @include typography(32px, $left-sidenav-text-light-color);
     font-weight: bold;
 }
 
